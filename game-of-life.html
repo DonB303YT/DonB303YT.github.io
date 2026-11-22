@@ -1,28 +1,37 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>@1P-100I - Game of Life</title>
+  <meta name="theme-color" content="#101418">
+  <title>@1P-100I — Game of Life</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/gh/kitao/pyxel/wasm/pyxel.js"></script>
 </head>
 <body>
   <div class="page-wrapper">
     <header class="site-header">
-      <h1>GAME OF LIFE</h1>
-      <p class="subtitle">Pyxel-Window &bull; @1P-100I</p>
+      <p class="site-label">PERSONAL WEBSITE</p>
+      <h1>@1P-100I</h1>
+      <p class="subtitle">Personal projects, experiments, and other things.</p>
     </header>
 
-    <nav class="nav-bar">
-      <a href="index.html">[ Home ]</a>
-      <a href="game-of-life.html" class="active">[ Game of Life ]</a>
-      <a href="https://www.youtube.com/@1P-100I" target="_blank" rel="noopener noreferrer">[ YouTube ]</a>
+    <nav class="nav-bar" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="game-of-life.html" class="active" aria-current="page">Game of Life</a>
+      <a href="https://www.youtube.com/@1P-100I" target="_blank" rel="noopener noreferrer">YouTube <span aria-hidden="true">↗</span></a>
     </nav>
 
-    <main class="content-box">
-      <div class="gol-window">
-        <div class="gol-window-bar">Life.pyx (64x64)</div>
+    <main class="content-box game-page">
+      <p class="eyebrow">INTERACTIVE PROJECT</p>
+      <h2>Conway’s Game of Life</h2>
+      <p class="game-intro">A tiny cellular-automaton sandbox. Start, pause, or draw your own patterns in the window below.</p>
+
+      <section class="gol-window" aria-label="Game of Life game window">
+        <div class="gol-window-bar">
+          <span class="window-title"><span class="window-indicator" aria-hidden="true"></span> LIFE.PYX</span>
+          <span class="window-size">64 × 64</span>
+        </div>
         <div class="gol-canvas-frame">
           <pyxel-run script="
 import random
@@ -118,18 +127,23 @@ pyxel.mouse(True)
 pyxel.run(update, draw)
 "></pyxel-run>
         </div>
-      </div>
+        <div class="window-status"><span>●</span> Pyxel is ready <span class="status-resolution">64 × 64 PIXELS</span></div>
+      </section>
 
-      <p class="controls-note">
-        <strong>Spacebar:</strong> Pause/Start &bull;
-        <strong>R:</strong> Zufall &bull;
-        <strong>C:</strong> Leeren &bull;
-        <strong>LMB/RMB:</strong> Draw/Delete
-      </p>
+      <section class="controls-panel" aria-labelledby="controls-title">
+        <h3 id="controls-title">Controls</h3>
+        <ul class="controls-list">
+          <li><kbd>Space</kbd><span>Pause / start</span></li>
+          <li><kbd>R</kbd><span>Randomize</span></li>
+          <li><kbd>C</kbd><span>Clear grid</span></li>
+          <li><kbd>Left click</kbd><span>Add a cell</span></li>
+          <li><kbd>Right click</kbd><span>Remove a cell</span></li>
+        </ul>
+      </section>
     </main>
 
     <footer class="site-footer">
-      <small>&copy; @1P-100I &bull; <span id="clock">--:--:--</span></small>
+      <small>© @DonB303 (1P-100I) <span aria-hidden="true">·</span> <a href="index.html">Back home</a> <span aria-hidden="true">·</span> <span id="clock">--:--:--</span></small>
     </footer>
   </div>
 

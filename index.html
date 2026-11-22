@@ -1,44 +1,42 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>@1P-100I - Startseite</title>
+  <meta name="theme-color" content="#101418">
+  <title>@1P-100I — Home</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="page-wrapper">
     <header class="site-header">
+      <p class="site-label">PERSONAL WEBSITE</p>
       <h1>@1P-100I</h1>
-      <p class="subtitle">Personal Site &bull; For Personal Projects :)</p>
+      <p class="subtitle">Personal projects, experiments, and other things.</p>
     </header>
 
-    <nav class="nav-bar">
-      <a href="index.html" class="active">[ Home ]</a>
-      <a href="game-of-life.html">[ Game of Life ]</a>
-      <a href="https://www.youtube.com/@1P-100I" target="_blank" rel="noopener noreferrer">[ YouTube ]</a>
+    <nav class="nav-bar" aria-label="Main navigation">
+      <a href="index.html" class="active" aria-current="page">Home</a>
+      <a href="game-of-life.html">Game of Life</a>
+      <a href="https://www.youtube.com/@1P-100I" target="_blank" rel="noopener noreferrer">YouTube <span aria-hidden="true">↗</span></a>
     </nav>
 
     <main class="content-box">
-      <h2>Welcome</h2>
-      <p>
-        This Website is still Work in progress, but i hope you like it.
-        <a href="https://www.youtube.com/@1P-100I" target="_blank" rel="noopener noreferrer">youtube.com/@1P-100I</a>.
-      </p>
-      <p>
-        From the Nav-Bar you can enter my Conways game of life from the Video <a href="https://www.youtube.com/watch?v=ub82Xb1C8os" target="_blank" rel="noopener noreferrer"></a>
-      </p>
+      <p class="eyebrow">WELCOME</p>
+      <h2>Hey, I'm @1P-100I.</h2>
+      <p>This site is a home for my personal projects. It’s still a work in progress, so check back for updates.</p>
+      <p>Take a look at my <a href="game-of-life.html">Conway’s Game of Life</a>, or find me on <a href="https://www.youtube.com/@1P-100I" target="_blank" rel="noopener noreferrer">YouTube</a>.</p>
 
       <hr class="retro-hr">
 
       <p class="status-line">
-        Lokal view counter: <span id="visit-count">1</span> &bull;
-        <span id="clock">--:--:--</span>
+        <span>LOCAL VISITS <strong id="visit-count">0001</strong></span>
+        <span>YOUR TIME <strong id="clock">--:--:--</strong></span>
       </p>
     </main>
 
     <footer class="site-footer">
-      <small>&copy; @DonB303(1P-100I) &bull; Best viewed at 800x600</small>
+      <small>© @DonB303 (1P-100I) <span aria-hidden="true">·</span> Made for the web</small>
     </footer>
   </div>
 
