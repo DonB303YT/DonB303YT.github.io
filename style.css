@@ -1,0 +1,128 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 24px 12px;
+  background-color: #101418;
+  background-image: radial-gradient(#24303c 1px, transparent 1px);
+  background-size: 16px 16px;
+  color: #e6e6e6;
+  font-family: "Courier New", Courier, monospace;
+}
+
+/* Deutliche Ränder links und rechts */
+.page-wrapper {
+  max-width: 720px;
+  margin: 0 auto;
+  background-color: #c0c0c0;
+  color: #000000;
+  border: 3px solid #dfdfdf;
+  outline: 2px solid #000000;
+  padding: 12px;
+}
+
+.site-header {
+  background-color: #000080;
+  color: #ffffff;
+  padding: 12px 14px;
+  border: 2px inset #808080;
+}
+
+.site-header h1 {
+  margin: 0;
+  font-size: 24px;
+  letter-spacing: 2px;
+}
+
+.subtitle {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: #ffff00;
+}
+
+.nav-bar {
+  margin-top: 10px;
+  padding: 8px;
+  background-color: #dfdfdf;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #808080;
+  border-bottom: 2px solid #808080;
+}
+
+.nav-bar a {
+  display: inline-block;
+  margin-right: 10px;
+  color: #0000ee;
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.nav-bar a:visited {
+  color: #551a8b;
+}
+
+.nav-bar a.active {
+  color: #000000;
+  background-color: #ffff00;
+  text-decoration: none;
+  padding: 1px 4px;
+}
+
+.content-box {
+  margin-top: 10px;
+  padding: 16px;
+  background-color: #ffffff;
+  border-top: 2px solid #808080;
+  border-left: 2px solid #808080;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  min-height: 220px;
+}
+
+.content-box h2 {
+  margin-top: 0;
+  font-size: 18px;
+  border-bottom: 2px dotted #000000;
+  padding-bottom: 4px;
+}
+
+.content-box a {
+  color: #0000ee;
+}
+
+.hello-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hello-text {
+  margin: 0;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.retro-hr {
+  border: 0;
+  border-top: 2px groove #c0c0c0;
+  margin: 16px 0;
+}
+
+.status-line {
+  margin: 0;
+  font-size: 13px;
+  background-color: #efefef;
+  padding: 6px 8px;
+  border: 1px solid #808080;
+}
+
+.site-footer {
+  margin-top: 10px;
+  text-align: center;
+  color: #222222;
+  font-size: 12px;
+}
