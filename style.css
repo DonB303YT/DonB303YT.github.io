@@ -126,3 +126,44 @@ body {
   color: #222222;
   font-size: 12px;
 }
+
+.gol-window {
+  max-width: 440px;
+  margin: 0 auto;
+  background-color: #c0c0c0;
+  border: 2px solid #dfdfdf;
+  outline: 2px solid #000000;
+  padding: 6px;
+}
+
+.gol-window-bar {
+  background-color: #000080;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 4px 8px;
+  margin-bottom: 6px;
+}
+
+.gol-canvas-frame {
+  background-color: #111111;
+  border: 2px inset #808080;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 320px;
+}
+
+.gol-canvas-frame canvas,
+.gol-canvas-frame pyxel-run {
+  max-width: 100%;
+  height: auto;
+}
+
+.controls-note {
+  margin: 14px 0 0;
+  font-size: 13px;
+  text-align: center;
+  line-height: 1.5;
+}
