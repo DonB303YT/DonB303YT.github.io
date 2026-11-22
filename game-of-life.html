@@ -5,26 +5,131 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>@1P-100I - Game of Life</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/gh/kitao/pyxel/wasm/pyxel.js"></script>
 </head>
 <body>
   <div class="page-wrapper">
     <header class="site-header">
       <h1>GAME OF LIFE</h1>
-      <p class="subtitle">Unterseite von @1P-100I</p>
+      <p class="subtitle">Pyxel-Window &bull; @1P-100I</p>
     </header>
 
     <nav class="nav-bar">
-      <a href="index.html">[ Startseite ]</a>
+      <a href="index.html">[ Home ]</a>
       <a href="game-of-life.html" class="active">[ Game of Life ]</a>
       <a href="https://www.youtube.com/@1P-100I" target="_blank" rel="noopener noreferrer">[ YouTube ]</a>
     </nav>
 
-    <main class="content-box hello-box">
-      <p class="hello-text">Hallo</p>
+    <main class="content-box">
+      <div class="gol-window">
+        <div class="gol-window-bar">Life.pyx (64x64)</div>
+        <div class="gol-canvas-frame">
+          <pyxel-run script="
+import random
+import pyxel
+
+WIDTH = 64
+HEIGHT = 64
+running = True
+
+
+def create_grid(randomize):
+  grid = []
+  for y in range(HEIGHT):
+    row = []
+    for x in range(WIDTH):
+      if randomize:
+        cell = random.randint(0, 1)
+      else:
+        cell = 0
+      row.append(cell)
+    grid.append(row)
+  return grid
+
+
+grid = create_grid(True)
+
+
+def count_neighbors(x, y):
+  neighbors = 0
+  for dy in (-1, 0, 1):
+    for dx in (-1, 0, 1):
+      if dx == 0 and dy == 0:
+        continue
+      nx = (x + dx) % WIDTH
+      ny = (y + dy) % HEIGHT
+      neighbors += grid[ny][nx]
+  return neighbors
+
+
+def get_next_cell(alive, neighbors):
+  if neighbors == 3:
+    return 1
+  if alive == 1 and neighbors == 2:
+    return 1
+  return 0
+
+
+def update():
+  global grid, running
+
+  if pyxel.btnp(pyxel.KEY_SPACE):
+    running = not running
+  if pyxel.btnp(pyxel.KEY_R):
+    grid = create_grid(True)
+  if pyxel.btnp(pyxel.KEY_C):
+    grid = create_grid(False)
+
+  mouse_x = pyxel.mouse_x % WIDTH
+  mouse_y = pyxel.mouse_y % HEIGHT
+  if pyxel.btn(pyxel.MOUSE_BUTTON_LEFT):
+    grid[mouse_y][mouse_x] = 1
+  if pyxel.btn(pyxel.MOUSE_BUTTON_RIGHT):
+    grid[mouse_y][mouse_x] = 0
+
+  if running:
+    new_grid = []
+    for y in range(HEIGHT):
+      new_row = []
+      for x in range(WIDTH):
+        neighbors = count_neighbors(x, y)
+        next_state = get_next_cell(grid[y][x], neighbors)
+        new_row.append(next_state)
+      new_grid.append(new_row)
+    grid = new_grid
+
+
+def draw():
+  pyxel.cls(0)
+
+  for y in range(HEIGHT):
+    for x in range(WIDTH):
+      if grid[y][x] == 1:
+        pyxel.pset(x, y, 11)
+
+  pyxel.pset(pyxel.mouse_x, pyxel.mouse_y, 7)
+
+  if not running:
+    pyxel.text(2, 2, 'Draw', 7)
+
+
+pyxel.init(WIDTH, HEIGHT, title='Life', fps=15)
+pyxel.mouse(True)
+pyxel.run(update, draw)
+"></pyxel-run>
+        </div>
+      </div>
+
+      <p class="controls-note">
+        <strong>Spacebar:</strong> Pause/Start &bull;
+        <strong>R:</strong> Zufall &bull;
+        <strong>C:</strong> Leeren &bull;
+        <strong>LMB/RMB:</strong> Draw/Delete
+      </p>
     </main>
 
     <footer class="site-footer">
-      <small>&copy; @1P-100I &bull; Game of Life Platzhalter</small>
+      <small>&copy; @1P-100I &bull; <span id="clock">--:--:--</span></small>
     </footer>
   </div>
 
